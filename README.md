@@ -14,9 +14,9 @@ Vous devriez avoir, un ensemble de données tel que :
 
 ```
 - User_Id : admin
-- User_ldumay_Token : 11566685c440ffc78ab15edb0527a37a6a
+- User_Token : 11566685c440ffc78ab15edb0527a37a6a (générer par Jenkins)
 - Job_Id : demo
-- Job_Token : xC62Lchv86AphD77Mfyg74PEG3P9
+- Job_Token : 11ef1b80dea446767
 ```
 
 > NB : Les données ci-dessous sont factices et peuvent être réutiliser pour des essais via un jenkins de démonstration dans un docker. Cela fut mon installation d'essai.
@@ -24,15 +24,15 @@ Vous devriez avoir, un ensemble de données tel que :
 ### 1.1 - Démarrer un Job à distance via `url`
 
 ```
-http://ldumay.ovh/jenkins/buildByToken/buildWithParameters?job=%0001_demo&token=iFBDOBhNhaxL4T9ass93HRXun2JF161Z
+http://localhost:8888/jenkins/buildByToken/buildWithParameters?job=demo&token=11ef1b80dea446767
 ```
 
 ```
-https://ldumay.ovh/jenkins/job/0001_demo/build?token=iFBDOBhNhaxL4T9ass93HRXun2JF161Z
+https://localhost:8888/jenkins/job/demo/build?token=11ef1b80dea446767
 ```
 
 ```
-https://ldumay.ovh/jenkins/buildWithParameters?token=iFBDOBhNhaxL4T9ass93HRXun2JF161Z&nom=test
+https://localhost:8888/jenkins/buildWithParameters?token=11ef1b80dea446767&nom=test
 ```
 
 ### 1.2 - Démarrer un Job à distance via `curl`
@@ -40,14 +40,14 @@ https://ldumay.ovh/jenkins/buildWithParameters?token=iFBDOBhNhaxL4T9ass93HRXun2J
 ### 1.2.1
 
 ```
-curl -I -u ldumay:112298018c781c08a3c2a149862a857f54 "http://ldumay.ovh/jenkins/job/0001_demo/build?token=iFBDOBhNhaxL4T9ass93HRXun2JF161Z"
+curl -I -u admin:11566685c440ffc78ab15edb0527a37a6a "http://localhost:8888/job/demo/build?token=11ef1b80dea446767"
 ```
 
 ### 1.2.2
 
 ```
-curl http://ldumay.ovh/jenkins/job/0001_demo/buildWithParameters \
-  --user ldumay:112298018c781c08a3c2a149862a857f54 \
+curl http://localhost:8888/job/demo/11ef1b80dea446767 \
+  --user admin:11566685c440ffc78ab15edb0527a37a6a \
   --data id=123 --data verbosity=high
 ```
 
